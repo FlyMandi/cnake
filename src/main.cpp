@@ -3,11 +3,11 @@
 #include "h/game.h"
 
 int WinMain(){
+    initGame();
 
     initGLFW();
     initVulkan();
 
-    initGame();
     gameLoop();
 
     cleanupVulkan();
