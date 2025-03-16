@@ -18,17 +18,16 @@ workspace("Cnake")
         files({ "src/**.h", "src/**.c", "src/**.hpp", "src/**.cpp" })
 
 filter("configurations:Debug")
-    -- defines{"DEBUG", "_DEBUG"}
-    -- staticruntime("off")
+    defines{"DEBUG", "_DEBUG"}
+    staticruntime("off")
     runtime("Debug")
     symbols("On")
     ignoredefaultlibraries({ "MSVCRT" })
-    -- targetsuffix "_d"
 
 filter("configurations:Release")
-    -- staticruntime("off")
+    staticruntime("off")
     runtime("Release")
-    -- symbols("Off")
+    symbols("Off")
     optimize("On")
 
 filter("platforms:Win64")
