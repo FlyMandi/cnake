@@ -5,7 +5,7 @@
 #include <iostream>
 
 void initGame(){
-    appName = "Cnake";
+    appName = "cnake";
     appVersion = "0.0.1";
     std::ios_base::sync_with_stdio(false);
     std::filesystem::path appRoot = getProjectRoot(appName);
