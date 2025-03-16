@@ -2,7 +2,7 @@
 
 #include "h/game.h"
 
-int main(){
+int WinMain(){
 
     initGLFW();
     initVulkan();
@@ -13,3 +13,5 @@ int main(){
     cleanupVulkan();
     cleanupGLFW();
 }
+
+//TODO: add other platforms
