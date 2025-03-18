@@ -10,14 +10,18 @@ void initGame(){
 
     appName = "cnake";
     appVersion = "0.0.1";
-    
+
+    //TODO: add error handling here
+    window::WIDTH = 1920;
+    window::HEIGHT = 1080;
+
     getProjectRoot(appName);
 
     std::ios_base::sync_with_stdio(false);
 }
 
 void gameLoop(){
-    while(!river::window_SHOULDCLOSE){
+    while(!window::SHOULDCLOSE){
         window::pollEvents();
         river::drawFrame();
     }
