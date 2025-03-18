@@ -1,17 +1,18 @@
 #include "river.h"
+#include "window.h"
 
-#include "h/game.h"
+#include "game.h"
 
 int WinMain(){
     initGame();
 
-    river::initGLFW();
+    window::initGLFW();
     river::initVulkan();
 
     gameLoop();
 
     river::cleanupVulkan();
-    river::cleanupGLFW();
+    window::cleanupGLFW();
 }
 
 //TODO: add other platforms
