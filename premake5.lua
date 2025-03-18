@@ -15,7 +15,7 @@ workspace("Cnake")
         targetdir("bin/%{cfg.buildcfg}")
         includedirs({ "./include/", "./river/include/", "./river/vendor/glfw-3.4-win64/include/", "%{VULKAN_SDK}/Include/" })
         syslibdirs({ "%{VULKAN_SDK}/Lib/", "./river/vendor/glfw-3.4-win64/lib-vc2022/" })
-        files({ "src/**.h", "src/**.c", "src/**.hpp", "src/**.cpp" })
+        files({ "include/**.h", "src/**.c", "include/**.hpp", "src/**.cpp" })
 
 filter("configurations:Debug")
     defines{"DEBUG", "_DEBUG"}
