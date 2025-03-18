@@ -4,6 +4,8 @@
 .\river\include\
 -I
 ..\..\VulkanSDK\1.4.309.0\Include\
+-I
+.\include\
 -target
 x86_64-pc-windows-gnu
 -xc++
