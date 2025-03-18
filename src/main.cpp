@@ -15,4 +15,14 @@ int WinMain(){
     window::cleanupGLFW();
 }
 
-//TODO: add other platforms
+int main(){
+    initGame();
+
+    window::initGLFW();
+    river::initVulkan();
+
+    gameLoop();
+
+    river::cleanupVulkan();
+    window::cleanupGLFW();
+}
