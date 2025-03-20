@@ -3,21 +3,20 @@
 
 #include "game.h"
 
-void initGame(){
-    using namespace river;
-
+void initGame()
+{
     appName = "cnake";
     appVersion = "0.0.1";
 
-    window::WIDTH = 1920;
-    window::HEIGHT = 1080;
+    WIDTH = 1920;
+    HEIGHT = 1080;
 
-    getProjectRoot(appName);
+    appRoot = getProjectRoot(appName);
 }
 
 void gameLoop(){
-    while(!window::SHOULDCLOSE){
-        window::pollEvents();
-        river::drawFrame();
+    while(!glfwWindowShouldClose(window)){
+        glfwPollEvents();
+        drawFrame();
     }
 }
