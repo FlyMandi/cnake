@@ -1,9 +1,14 @@
+#ifdef _WIN32 
+
+#include "windows.h"
+
 #include "river.h"
 #include "window.h"
 
 #include "game.h"
 
-int WinMain(){
+int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR lpCmdLine, int nCmdShow)
+{
     initGame();
 
     initGLFW();
@@ -14,8 +19,15 @@ int WinMain(){
     cleanupVulkan();
     cleanupGLFW();
 }
+#else
 
-int main(){
+#include "river.h"
+#include "window.h"
+
+#include "game.h"
+
+int main()
+{
     initGame();
 
     initGLFW();
@@ -26,3 +38,4 @@ int main(){
     cleanupVulkan();
     cleanupGLFW();
 }
+#endif

@@ -12,6 +12,7 @@ void initGame()
     HEIGHT = 1080;
 
     appRoot = getProjectRoot(appName);
+    clearLogs(appRoot);
 }
 
 void gameLoop(){
