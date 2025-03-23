@@ -1,6 +1,7 @@
 ---@diagnostic disable: undefined-global, undefined-field
 
 include "River"
+require("vendor/premake-ecc/ecc")
 
 workspace("Cnake")
     configurations({ "Debug", "Release" })
