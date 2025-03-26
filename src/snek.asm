@@ -1,16 +1,17 @@
-    bits 64
-    default rel
-
-segment .data   
-message: db "now entering... snek!!", 0
-        
-segment .text
-    global main
-    extern printf      
-    extern ExitProcess  
-
-main: 
+    printf proto
+    includelib msvcrt.lib
+    includelib legacy_stdio_definitions.lib
     
+.data   
+    message db "now entering... snek!!", 0
+        
+.code
+main proc
+    sub rsp, 40
+    mov rcx, offset message
     call printf
-    xor rax, rax
-    call ExitProcess
+    add rsp, 40
+    ret
+main endp
+
+end
