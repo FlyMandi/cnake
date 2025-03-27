@@ -1,4 +1,5 @@
-    printf proto
+    extern printf: PROC
+        
     includelib msvcrt.lib
     includelib legacy_stdio_definitions.lib
     
@@ -8,8 +9,11 @@
 .code
 main proc
     sub rsp, 40
-    mov rcx, offset message
+    lea rcx, message
     call printf
+
+
+
     add rsp, 40
     ret
 main endp
