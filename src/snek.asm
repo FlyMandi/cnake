@@ -4,15 +4,18 @@
     includelib legacy_stdio_definitions.lib
     
 .data   
-    message db "now entering... snek!!", 0
-        
+    message db "now entering... snek!!", 13, 10, 0
+    message2 db "t'is a cool game.", 13, 10, 0
+
 .code
 main proc
     sub rsp, 40
+
     lea rcx, message
     call printf
 
-
+    lea rcx, message2
+    call printf
 
     add rsp, 40
     ret
