@@ -22,10 +22,23 @@
 .code
 
 MainEntry:
-    push    NULL
+    mov     rcx, NULL
     call    GetModuleHandle
     mov     hInstance, rax
 
     call    GetCommandLine
+    mov     CommandLine, rax    
+
+    push    SW_SHOWDEFAULT
+    lea     rax, CommandLine
+    push    rax
+    push    NULL
+    push    hInstance
+    call    WinMain
+
+    push    rax
+    call    ExitProcess
+
+    ret
 
 end
