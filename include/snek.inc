@@ -1,7 +1,13 @@
-HINSTANCE       typedef DWORD
-LPSTR           typedef DWORD
+HINSTANCE       typedef QWORD
+LPSTR           typedef QWORD
+ 
+TRUE                equ 1 
+FALSE               equ 0 
+NULL                equ 0
 
+SW_SHOWDEFAULT      equ 10
 
+ExitProcess PROTO STDCALL :DWORD
 
 GetCommandLineA PROTO STDCALL
 IFNDEF __UNICODE__
