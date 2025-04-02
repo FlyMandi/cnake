@@ -1,5 +1,3 @@
-    extern printf: PROC
-
     include ..\include\snek.inc 
         
     includelib kernel32.lib
@@ -16,8 +14,8 @@
     AppName         byte "Snek", 0
 
 .data?
-    hInstance       HINSTANCE ?
-    CommandLine     LPSTR ?
+    hInstance       QWORD       ?
+    CommandLine     QWORD       ?
 
 .code
 
