@@ -4,57 +4,57 @@ NULL                equ 0
 
 SW_SHOWDEFAULT      equ 10
 
-ExitProcess PROTO STDCALL :QWORD
-
 POINT STRUCT
-  x  DWORD ?
-  y  DWORD ?
+  x  QWORD ?
+  y  QWORD ?
 POINT ENDS
 
+WNDMESSAGE STRUCT
+    hwnd        QWORD      ?
+    message     QWORD      ?
+    wParam      QWORD      ?
+    lParam      QWORD      ?
+    time        QWORD      ?
+    pt          POINT      <>
+WNDMESSAGE ENDS
+
 WNDCLASSEXA STRUCT
-  cbSize            QWORD      ?
-  style             QWORD      ?
-  lpfnWndProc       QWORD      ?
-  cbClsExtra        QWORD      ?
-  cbWndExtra        QWORD      ?
-  hInstance         QWORD      ?
-  hIcon             QWORD      ?
-  hCursor           QWORD      ?
-  hbrBackground     QWORD      ?
-  lpszMenuName      QWORD      ?
-  lpszClassName     QWORD      ?
-  hIconSm           QWORD      ?
+    cbSize          QWORD      ?
+    style           QWORD      ?
+    lpfnWndProc     QWORD      ?
+    cbClsExtra      QWORD      ?
+    cbWndExtra      QWORD      ?
+    hInstance       QWORD      ?
+    hIcon           QWORD      ?
+    hCursor         QWORD      ?
+    hbrBackground   QWORD      ?
+    lpszMenuName    QWORD      ?
+    lpszClassName   QWORD      ?
+    hIconSm         QWORD      ?
 WNDCLASSEXA ENDS
 
 WNDCLASSEXW STRUCT
-  cbSize            QWORD      ?
-  style             QWORD      ?
-  lpfnWndProc       QWORD      ?
-  cbClsExtra        QWORD      ?
-  cbWndExtra        QWORD      ?
-  hInstance         QWORD      ?
-  hIcon             QWORD      ?
-  hCursor           QWORD      ?
-  hbrBackground     QWORD      ?
-  lpszMenuName      QWORD      ?
-  lpszClassName     QWORD      ?
-  hIconSm           QWORD      ?
+    cbSize          QWORD      ?
+    style           QWORD      ?
+    lpfnWndProc     QWORD      ?
+    cbClsExtra      QWORD      ?
+    cbWndExtra      QWORD      ?
+    hInstance       QWORD      ?
+    hIcon           QWORD      ?
+    hCursor         QWORD      ?
+    hbrBackground   QWORD      ?
+    lpszMenuName    QWORD      ?
+    lpszClassName   QWORD      ?
+    hIconSm         QWORD      ?
 WNDCLASSEXW ENDS
-
-MSG STRUCT
-  hwnd      QWORD      ?
-  message   QWORD      ?
-  wParam    QWORD      ?
-  lParam    QWORD      ?
-  time      QWORD      ?
-  pt        POINT      <>
-MSG ENDS
 
 IFDEF __UNICODE__
     WNDCLASSEX  equ  <WNDCLASSEXW>
 ELSE
     WNDCLASSEX  equ  <WNDCLASSEXA>
 ENDIF
+
+ExitProcess PROTO STDCALL :QWORD
 
 GetCommandLineA PROTO STDCALL
 IFNDEF __UNICODE__
