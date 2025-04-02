@@ -41,6 +41,26 @@ MainEntry:
 
 WinMain proc hInst:QWORD, hPrevInst:QWORD, CmdLine:QWORD, CmdShow:QWORD
 
-    Local   wc:WNDCLASSEX
+    LOCAL   wc:WNDCLASSEX
+    LOCAL   msg:WNDMESSAGE
+    LOCAL   hwnd:QWORD
+
+    ;rest of WinMain
+
+MessageLoop:
+
+    ;loop
+
+DoneMessages:
+
+    mov     rax, msg.wParam
+
+WinMainRet:
+
+    ret
+
+WinMain endp
+    
+;WndProc would go here
 
 end
