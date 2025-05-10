@@ -1,6 +1,7 @@
 option casemap :none
 
-include ..\include\snek.inc 
+include ..\include\OS.inc 
+include ..\include\window.inc
     
 includelib kernel32.lib
 includelib gdi32.lib    
