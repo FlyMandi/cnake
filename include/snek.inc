@@ -66,6 +66,22 @@ WNDCLASSEXW STRUCT
     hIconSm         QWORD      ?
 WNDCLASSEXW ENDS
 
+RECT STRUCT
+  left    dd      ?
+  top     dd      ?
+  right   dd      ?
+  bottom  dd      ?
+RECT ENDS
+
+PAINTSTRUCT STRUCT
+  hdc           QWORD      ?
+  fErase        QWORD      ?
+  rcPaint       RECT       <>
+  fRestore      QWORD      ?
+  fIncUpdate    QWORD      ?
+  rgbReserved   BYTE 32 dup(?)
+PAINTSTRUCT ENDS
+
 IFDEF __UNICODE__
     WNDCLASSEX  equ  <WNDCLASSEXW>
 ELSE
@@ -122,4 +138,26 @@ ENDIF
 CreateWindowExW PROTO STDCALL :QWORD,:QWORD,:QWORD,:QWORD,:QWORD,:QWORD,:QWORD,:QWORD,:QWORD,:QWORD,:QWORD,:QWORD
 IFDEF __UNICODE__
   CreateWindowEx equ <CreateWindowExW>
+ENDIF
+
+GetMessageA PROTO STDCALL :QWORD,:QWORD,:QWORD,:QWORD
+IFNDEF __UNICODE__
+  GetMessage equ <GetMessageA>
+ENDIF
+
+GetMessageW PROTO STDCALL :QWORD,:QWORD,:QWORD,:QWORD
+IFDEF __UNICODE__
+  GetMessage equ <GetMessageW>
+ENDIF
+
+TranslateMessage PROTO STDCALL :QWORD
+
+DispatchMessageA PROTO STDCALL :QWORD
+IFNDEF __UNICODE__
+  DispatchMessage equ <DispatchMessageA>
+ENDIF
+
+DispatchMessageW PROTO STDCALL :QWORD
+IFDEF __UNICODE__
+  DispatchMessage equ <DispatchMessageW>
 ENDIF
