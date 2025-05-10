@@ -180,8 +180,12 @@ NotWMDestroy:
     ret
 
 NotWMPaint:
-
-;TODO:
+    push    lParam
+    push    wParam
+    push    uMsg
+    push    hWnd
+    call    DefWindowProc
+    ret
 
 WndProc endp
 
