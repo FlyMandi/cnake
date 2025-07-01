@@ -1,7 +1,7 @@
 option casemap:none
 
-include ..\include\OS.inc
-include ..\include\window.inc
+include ..\include\OS.asm
+include ..\include\window.asm
 
 includelib kernel32.lib
 includelib gdi32.lib
@@ -93,7 +93,7 @@ WinMain proc hInst:QWORD, hPrevInst:QWORD, CmdLine:QWORD, CmdShow:QWORD
     push    IDC_ARROW
     push    NULL
     call    LoadCursor
-    mov     wc.hCursor, rax //FIXME: segfault here
+    mov     wc.hCursor, rax ;FIXME: segfault here
 
     push    NULL
     push    hInstance
