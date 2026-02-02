@@ -13,7 +13,7 @@ workspace("Cnake")
         language("C++")
         cppdialect("C++20")
         targetdir("bin/%{cfg.buildcfg}")
-        includedirs({ "./river/include/", "./river/vendor/glfw-3.4-win64/include/", "%{VULKAN_SDK}/Include/" })
+        includedirs({ "./include/", "./river/include/", "./river/vendor/glfw-3.4-win64/include/", "%{VULKAN_SDK}/Include/" })
         syslibdirs({ "%{VULKAN_SDK}/Lib/", "./river/vendor/glfw-3.4-win64/lib-vc2022/" })
         files({ "src/**.h", "src/**.c", "src/**.hpp", "src/**.cpp" })
 
@@ -34,16 +34,16 @@ filter("platforms:Win64")
     system("Windows")
     architecture("x86_64")
 
-    newaction({
-        trigger = "clean",
-        description = "clean the software",
-        execute = function()
-            print("clean the build...")
-            os.rmdir("./build/")
-            os.rmdir("./bin/")
-            os.remove("BuildRules.xml")
-            os.remove("BuildRules.props")
-            os.remove("BuildRules.targets")
-            print("done.")
-        end,
-    })
+newaction({
+    trigger = "clean",
+    description = "clean the software",
+    execute = function()
+        print("clean the build...")
+        os.rmdir("./build/")
+        os.rmdir("./bin/")
+        os.remove("BuildRules.xml")
+        os.remove("BuildRules.props")
+        os.remove("BuildRules.targets")
+        print("done.")
+    end,
+})
