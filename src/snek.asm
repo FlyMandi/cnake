@@ -93,7 +93,7 @@ WinMain proc hInst:QWORD, hPrevInst:QWORD, CmdLine:QWORD, CmdShow:QWORD
     push    IDC_ARROW
     push    NULL
     call    LoadCursor
-    mov     wc.hCursor, rax
+    mov     wc.hCursor, rax //FIXME: segfault here
 
     push    NULL
     push    hInstance
