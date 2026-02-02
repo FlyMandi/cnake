@@ -1,3 +1,5 @@
+//TODO: remove river as a submodule and move to working with MASM
+
 #include "river.h"
 #include "window.h"
 
