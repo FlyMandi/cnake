@@ -10,8 +10,10 @@ includelib user32.lib
 WinMain PROTO :QWORD, :QWORD, :QWORD, :QWORD
 WndProc PROTO :QWORD, :QWORD, :QWORD, :QWORD
 
-WindowWidth     equ 1920
-WindowHeight    equ 1080
+UpdateWindow PROTO STDCALL :DWORD
+
+WindowWidth     equ 800
+WindowHeight    equ 600
 
 public MainEntry
 
@@ -26,16 +28,29 @@ public MainEntry
 
 .code
 
-MainEntry:
+MainEntry proc
 
-    mov     rcx, NULL
+    LOCAL   sui:STARTUPINFOA
+
+    push    NULL
     call    GetModuleHandle
     mov     hInstance, rax
 
     call    GetCommandLine
     mov     CommandLine, rax
 
+    lea     rax, sui
+    push    rax
+    call    GetStartupInfo
+    test    sui.dwFlags, STARTF_USESHOWWINDOW
+    jz      showdefault
+    push    sui.wShowWindow
+    jz      notshowdefault
+
+showdefault:
     push    SW_SHOWDEFAULT
+
+notshowdefault:
     lea     rax, CommandLine
     push    rax
     push    NULL
@@ -45,6 +60,8 @@ MainEntry:
     push    rax
     call    ExitProcess
 
+MainEntry endp
+
     ;TODO: check for minimized, maximized flags?
 
 WinMain proc hInst:QWORD, hPrevInst:QWORD, CmdLine:QWORD, CmdShow:QWORD
@@ -52,8 +69,6 @@ WinMain proc hInst:QWORD, hPrevInst:QWORD, CmdLine:QWORD, CmdShow:QWORD
     LOCAL   wc:WNDCLASSEX
     LOCAL   msg:WNDMESSAGE
     LOCAL   hwnd:QWORD
-
-    ;TODO: rest of WinMain
 
     mov     wc.cbSize, SIZEOF WNDCLASSEX
     mov     wc.style, CS_HREDRAW or CS_VREDRAW
@@ -98,6 +113,9 @@ WinMain proc hInst:QWORD, hPrevInst:QWORD, CmdLine:QWORD, CmdShow:QWORD
     cmp     rax, NULL
     je      WinMainRet
     mov     hwnd, rax
+
+    push    rax
+    call    UpdateWindow
 
 MessageLoop:
     push    0
