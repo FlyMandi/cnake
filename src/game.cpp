@@ -7,9 +7,10 @@
 void initGame(){
     appName = "cnake";
     appVersion = "0.0.1";
+
+    appRoot = getProjectRoot(appName);
+
     std::ios_base::sync_with_stdio(false);
-    std::filesystem::path appRoot = getProjectRoot(appName);
-    createMainMenu();
 }
 
 void gameLoop(){
@@ -17,8 +18,4 @@ void gameLoop(){
         windowPollEvents();
         drawFrame();
     }
-}
-
-void createMainMenu(){
-
 }
