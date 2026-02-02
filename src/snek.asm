@@ -4,7 +4,7 @@
     includelib gdi32.lib    
     includelib user32.lib
 
-    WinMain proto :DWORD, :DWORD, :DWORD                    ;
+    WinMain proto :QWORD, :QWORD, :QWORD, :QWORD
 
     WindowWidth     equ 1920
     WindowHeight    equ 1080
@@ -37,6 +37,10 @@ MainEntry:
     push    rax
     call    ExitProcess
 
-    ret
+    ;TODO: check for minimized, maximized flags?
+
+WinMain proc hInst:QWORD, hPrevInst:QWORD, CmdLine:QWORD, CmdShow:QWORD
+
+    Local   wc:WNDCLASSEX
 
 end
