@@ -1,10 +1,10 @@
-option casemap :none
+option casemap:none
 
-include ..\include\OS.inc 
+include ..\include\OS.inc
 include ..\include\window.inc
-    
+
 includelib kernel32.lib
-includelib gdi32.lib    
+includelib gdi32.lib
 includelib user32.lib
 
 WinMain PROTO :QWORD, :QWORD, :QWORD, :QWORD
@@ -14,8 +14,8 @@ WindowWidth     equ 1920
 WindowHeight    equ 1080
 
 public MainEntry
-    
-.data   
+
+.data
     ClassName       byte "SnekWindowClass", 0
     AppName         byte "Snek in ASM!", 0
 
@@ -33,7 +33,7 @@ MainEntry:
     mov     hInstance, rax
 
     call    GetCommandLine
-    mov     CommandLine, rax    
+    mov     CommandLine, rax
 
     push    SW_SHOWDEFAULT
     lea     rax, CommandLine
@@ -89,9 +89,9 @@ WinMain proc hInst:QWORD, hPrevInst:QWORD, CmdLine:QWORD, CmdShow:QWORD
     push    CW_USEDEFAULT
     push    CW_USEDEFAULT
     push    WS_OVERLAPPEDWINDOW + WS_VISIBLE
-    lea     rbx, AppName                        
-    push    rbx                                 
-    lea     rbx, ClassName                      
+    lea     rbx, AppName
+    push    rbx
+    lea     rbx, ClassName
     push    rbx
     push    0
     call    CreateWindowEx
@@ -117,7 +117,7 @@ MessageLoop:
     lea     rax, msg
     push    rax
     call    DispatchMessage
-    
+
     jmp     MessageLoop
 
 DoneMessages:
@@ -135,7 +135,7 @@ WndProc proc hWnd:QWORD, uMsg:QWORD, wParam:QWORD, lParam:QWORD
     LOCAL   hdc:QWORD
 
     cmp     uMsg, WM_DESTROY
-    jne     NotWMDestroy 
+    jne     NotWMDestroy
 
     push    NULL
     call    PostQuitMessage
@@ -145,7 +145,7 @@ WndProc proc hWnd:QWORD, uMsg:QWORD, wParam:QWORD, lParam:QWORD
 NotWMDestroy:
     cmp     uMsg, WM_PAINT
     jne     NotWMPaint
-    
+
     lea     rax, ps
     push    rax
     push    hWnd
@@ -171,7 +171,7 @@ NotWMDestroy:
     push    hdc
     call    DrawText
 
-    lea     rax, ps 
+    lea     rax, ps
     push    rax
     push    hWnd
     call    EndPaint
