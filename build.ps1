@@ -1,7 +1,6 @@
-#TODO: move all of this to premake5.lua, get rid of build.ps1
 param( 
     [Parameter(position=0,Mandatory=$false)]
-    $build = "release",
+    $build = "debug",
     [Parameter(position=1,Mandatory=$false)]
     [switch] $nAMD = $false 
 )
