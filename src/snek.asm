@@ -1,24 +1,31 @@
     extern printf: PROC
+
+    include ..\include\snek.inc 
         
-    includelib msvcrt.lib
-    includelib legacy_stdio_definitions.lib
+    includelib kernel32.lib
+    includelib gdi32.lib    
+    includelib user32.lib
+
+    WinMain proto :DWORD, :DWORD, :DWORD                    ;
+
+    WindowWidth     equ 1920
+    WindowHeight    equ 1080
     
 .data   
-    message byte "now entering... snek!!", 13, 10, 0
-    message2 byte "t'is a cool game.", 13, 10, 0
+    ClassName       byte "SnekWinClass", 0
+    AppName         byte "Snek", 0
+
+.data?
+    hInstance       HINSTANCE ?
+    CommandLine     LPSTR ?
 
 .code
-main proc
-    sub rsp, 40
 
-    lea rcx, message
-    call printf
+MainEntry:
+    push    NULL
+    call    GetModuleHandle
+    mov     hInstance, rax
 
-    lea rcx, message2
-    call printf
-
-    add rsp, 40
-    ret
-main endp
+    call    GetCommandLine
 
 end
