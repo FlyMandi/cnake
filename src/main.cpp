@@ -1,4 +1,4 @@
-#ifdef _WIN32 
+#if !defined(DEBUG) && defined(_WIN32)
 
 #include "windows.h"
 
