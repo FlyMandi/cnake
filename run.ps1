@@ -1,1 +1,1 @@
-Invoke-Expression ".\build\snek.exe"
+Invoke-Expression ".\bin\snek.exe"
