@@ -8,7 +8,6 @@ workspace("Cnake")
     location("build")
 
     project("Cnake")
-        kind("WindowedApp")
         links("River")
         language("C++")
         cppdialect("C++20")
@@ -18,13 +17,15 @@ workspace("Cnake")
         files({ "include/**.h", "src/**.c", "include/**.hpp", "src/**.cpp" })
 
 filter("configurations:Debug")
-    defines{"DEBUG", "_DEBUG"}
+    kind("ConsoleApp")
+    defines{"DEBUG"}
     staticruntime("off")
     runtime("Debug")
     symbols("On")
     ignoredefaultlibraries({ "MSVCRT" })
 
 filter("configurations:Release")
+    kind("WindowedApp")
     staticruntime("off")
     runtime("Release")
     symbols("Off")
