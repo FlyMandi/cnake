@@ -1,13 +1,17 @@
-    include ..\include\snek.inc 
-        
-    includelib kernel32.lib
-    includelib gdi32.lib    
-    includelib user32.lib
+option casemap :none
 
-    WinMain proto :QWORD, :QWORD, :QWORD, :QWORD
+include ..\include\snek.inc 
+    
+includelib kernel32.lib
+includelib gdi32.lib    
+includelib user32.lib
 
-    WindowWidth     equ 1920
-    WindowHeight    equ 1080
+WinMain proto :QWORD, :QWORD, :QWORD, :QWORD
+
+WindowWidth     equ 1920
+WindowHeight    equ 1080
+
+public MainEntry
     
 .data   
     ClassName       byte "SnekWinClass", 0
@@ -63,4 +67,4 @@ WinMain endp
     
 ;WndProc would go here
 
-end
+END
