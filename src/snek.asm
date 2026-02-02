@@ -18,12 +18,14 @@ public MainEntry
     AppName         byte "Snek", 0
 
 .data?
+    ;TODO: see if you can't mask these and just keep them as DWORDs
     hInstance       QWORD       ?
     CommandLine     QWORD       ?
 
 .code
 
 MainEntry:
+
     mov     rcx, NULL
     call    GetModuleHandle
     mov     hInstance, rax
@@ -49,22 +51,19 @@ WinMain proc hInst:QWORD, hPrevInst:QWORD, CmdLine:QWORD, CmdShow:QWORD
     LOCAL   msg:WNDMESSAGE
     LOCAL   hwnd:QWORD
 
-    ;rest of WinMain
+    ;TODO: rest of WinMain
 
 MessageLoop:
-
-    ;loop
+    ;TODO: loop
 
 DoneMessages:
-
     mov     rax, msg.wParam
 
 WinMainRet:
-
     ret
 
 WinMain endp
     
-;WndProc would go here
+;TODO: WndProc would go here
 
 END
