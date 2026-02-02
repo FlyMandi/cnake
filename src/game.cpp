@@ -9,6 +9,7 @@ void initGame(){
     appVersion = "0.0.1";
 
     appRoot = getProjectRoot(appName);
+    debugLog = appRoot / "debug.log";
 
     std::ios_base::sync_with_stdio(false);
 }
