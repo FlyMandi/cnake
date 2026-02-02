@@ -1,13 +1,11 @@
 if(-Not (Test-Path ".\build\")){
     &mkdir ".\build\"
 }
-$nasmargs = '-f win64', '.\src\snek.asm', '-o .\build\snek.obj'
-
-Invoke-Expression "nasm $nasmargs" -ErrorAction Break
-
 if(-Not (Test-Path ".\bin\")){
     &mkdir ".\bin\"
 }
-$linkargs = '.\build\snek.obj', '-o .\bin\snek.exe'
+Push-Location ".\build\"
+$masmargs = '..\src\snek.asm', '/Fo .\snek.obj', '/Fe ..\bin\snek.exe'
 
-Invoke-Expression "ld $linkargs" -ErrorAction Break
+Invoke-Expression "ml64 $masmargs" -ErrorAction Break
+Pop-Location
