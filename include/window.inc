@@ -82,6 +82,48 @@ WNDCLASSEXW STRUCT
     hIconSm         QWORD      ?
 WNDCLASSEXW ENDS
 
+STARTUPINFOA STRUCT
+  cb              DWORD ?
+  lpReserved      DWORD ?
+  lpDesktop       DWORD ?
+  lpTitle         DWORD ?
+  dwX             DWORD ?
+  dwY             DWORD ?
+  dwXSize         DWORD ?
+  dwYSize         DWORD ?
+  dwXCountChars   DWORD ?
+  dwYCountChars   DWORD ?
+  dwFillAttribute DWORD ?
+  dwFlags         DWORD ?
+  wShowWindow     WORD ?
+  cbReserved2     WORD ?
+  lpReserved2     DWORD ?
+  hStdInput       DWORD ?
+  hStdOutput      DWORD ?
+  hStdError       DWORD ?
+STARTUPINFOA ENDS
+
+STARTUPINFOW STRUCT
+  cb              DWORD ?
+  lpReserved      DWORD ?
+  lpDesktop       DWORD ?
+  lpTitle         DWORD ?
+  dwX             DWORD ?
+  dwY             DWORD ?
+  dwXSize         DWORD ?
+  dwYSize         DWORD ?
+  dwXCountChars   DWORD ?
+  dwYCountChars   DWORD ?
+  dwFillAttribute DWORD ?
+  dwFlags         DWORD ?
+  wShowWindow     WORD ?
+  cbReserved2     WORD ?
+  lpReserved2     DWORD ?
+  hStdInput       DWORD ?
+  hStdOutput      DWORD ?
+  hStdError       DWORD ?
+STARTUPINFOW ENDS
+
 RECT STRUCT
   left    dd      ?
   top     dd      ?
