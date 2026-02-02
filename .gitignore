@@ -6,3 +6,4 @@ build/
 *.log
 *.exe
 compile_*
+*lsp.toml
