@@ -1,0 +1,10 @@
+-I
+.\river\vendor\glfw-3.4-win64\Include\
+-I
+.\river\include\
+-I
+..\..\VulkanSDK\1.4.309.0\Include\
+-target
+x86_64-pc-windows-gnu
+-xc++
+-std=c++20
