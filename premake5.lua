@@ -23,7 +23,7 @@ filter("configurations:Debug")
     runtime("Debug")
     symbols("On")
     ignoredefaultlibraries({ "MSVCRT" })
-    targetsuffix "_d"
+    -- targetsuffix "_d"
 
 filter("configurations:Release")
     -- staticruntime("off")
