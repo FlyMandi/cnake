@@ -1,6 +1,7 @@
 #include "river.h"
+#include "window.h"
 
-#include "h/game.h"
+#include "game.h"
 
 #include <iostream>
 
@@ -17,7 +18,7 @@ void initGame(){
 
 void gameLoop(){
     while(!river::window_SHOULDCLOSE){
-        river::windowPollEvents();
+        window::pollEvents();
         river::drawFrame();
     }
 }
