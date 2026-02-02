@@ -4,3 +4,4 @@ bin/
 .cache*
 build/
 *.log
+*.exe
