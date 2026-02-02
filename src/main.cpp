@@ -6,23 +6,23 @@
 int WinMain(){
     initGame();
 
-    window::initGLFW();
-    river::initVulkan();
+    initGLFW();
+    initVulkan();
 
     gameLoop();
 
-    river::cleanupVulkan();
-    window::cleanupGLFW();
+    cleanupVulkan();
+    cleanupGLFW();
 }
 
 int main(){
     initGame();
 
-    window::initGLFW();
-    river::initVulkan();
+    initGLFW();
+    initVulkan();
 
     gameLoop();
 
-    river::cleanupVulkan();
-    window::cleanupGLFW();
+    cleanupVulkan();
+    cleanupGLFW();
 }
