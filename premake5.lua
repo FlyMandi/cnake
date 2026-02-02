@@ -29,7 +29,7 @@ filter("configurations:Release")
     staticruntime("off")
     runtime("Release")
     symbols("Off")
-    optimize("On")
+    optimize("Speed")
 
 filter("platforms:Win64")
     system("Windows")
