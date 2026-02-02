@@ -1,3 +1,5 @@
+//TODO: move this main shenanigans to a test.cpp or something for river
+
 #if !defined(DEBUG) && defined(_WIN32)
 
 #include "windows.h"
