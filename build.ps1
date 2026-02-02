@@ -6,6 +6,7 @@ param(
 )
 
 &premake5 vs2022
+&premake5 ecc
 
 $VS = Join-Path $env:PROGRAMFILES "\Microsoft Visual Studio\2022\Community\"
 
