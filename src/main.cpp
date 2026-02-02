@@ -5,13 +5,13 @@
 int WinMain(){
     initGame();
 
-    initGLFW();
-    initVulkan();
+    river::initGLFW();
+    river::initVulkan();
 
     gameLoop();
 
-    cleanupVulkan();
-    cleanupGLFW();
+    river::cleanupVulkan();
+    river::cleanupGLFW();
 }
 
 //TODO: add other platforms
