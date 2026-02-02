@@ -8,8 +8,7 @@ void initGame(){
     appName = "cnake";
     appVersion = "0.0.1";
 
-    appRoot = getProjectRoot(appName);
-    debugLog = appRoot / "debug.log";
+    getProjectRoot(appName);
 
     std::ios_base::sync_with_stdio(false);
 }
